@@ -1,10 +1,28 @@
-// eslint-disable-next-line
-console.log(123);
+const yargs = require('yargs');
 
-console.log(123); // eslint-disable-line
+const Server = require('./app');
 
-let mock = true;
+const argv=yargs.usage('anydoor.sh [options]')
+  .option('p', {
+    alias: 'port',
+    describe: 'port',
+    default: 3000
+  })
+  .option('h', {
+    alias: 'hostname',
+    describe: 'host',
+    default: '127.0.0.1'
+  })
+  .option('d', {
+    alias: 'root',
+    describe: 'root path',
+    default: process.cwd()
+  })
+  .version()
+  .alias('v', 'version')
+  .help()
+  .argv;
 
-if (mock) {
-    console.log('OK'); //eslint-disable-line
-}
+
+const server = new Server(argv);
+server.start();

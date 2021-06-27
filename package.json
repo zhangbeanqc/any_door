@@ -2,13 +2,20 @@
   "name": "any_door",
   "version": "1.0.0",
   "description": "Tiny NodeJs Static Web server",
-  "main": "index.js",
+  "main": "src/app.js",
+  "bin": {
+      "anydoor": "bin/anydoor.sh"
+  },
   "dependencies": {
-    "babel-eslint": "^10.1.0"
+    "chalk": "^4.1.1",
+    "commander": "^8.0.0",
+    "handlebars": "^4.7.7",
+    "yargs": "^17.0.1"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.28.0",
     "@typescript-eslint/parser": "^4.28.0",
+    "babel-eslint": "^10.1.0",
     "eslint": "^7.29.0",
     "pre-commit": "^1.2.2"
   },
@@ -18,8 +25,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "pre-commit": [
-      "lint",
-      "fix"
+    "lint",
+    "fix"
   ],
   "repository": {
     "type": "git",
